@@ -1,0 +1,23 @@
+---
+abstract: "a datetime field with natural\nlanguage parsing."
+author:
+  - 'Roman F. <romanf@cpan.org>'
+build_requires:
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300010, CPAN::Meta::Converter version 2.120630'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: HTML-FormHandlerX-Field-DateTimeNatural
+requires:
+  DateTime::Format::Natural: 0
+  HTML::FormHandler::Field::Text: 0
+  Moose: 0
+  MooseX::Types::DateTime: 0
+  namespace::autoclean: 0
+  version: 0
+version: v0.1.0
