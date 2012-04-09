@@ -8,7 +8,7 @@ extends 'HTML::FormHandler::Field::Text';
 
 use DateTime::Format::Natural;
 
-use version; our $VERSION = version->declare("v0.2");
+use version; our $VERSION = version->declare("v0.3");
 
 has 'datetime_format_natural' => (
     is         => 'ro',
@@ -70,7 +70,7 @@ sub get_class_messages {
 sub validate {
     my $self = shift;
     my $value = $self->value;
-    
+
     ## validate
     my $parser = $self->datetime_format_natural;
     my $dt = $parser->parse_datetime($value);
@@ -96,7 +96,7 @@ sub _build_datetime_format_natural {
             $attributes{$attr} = $self->$attr;
         }
     }
-    
+
     ## Fix time_zone if set, because DT::F::N can only accept time zone
     ## names and not objects, at the time of writing this module.
     if ($self->has_time_zone) {
@@ -110,8 +110,17 @@ __PACKAGE__->meta->make_immutable;
 use namespace::autoclean;
 1;
 
-__END__
+
+
 =pod
+
+=head1 NAME
+
+HTML::FormHandlerX::Field::DateTimeNatural - a datetime field with natural language parsing.
+
+=head1 VERSION
+
+version v0.3
 
 =head1 SYNOPSIS
 
@@ -163,3 +172,19 @@ their description:
 =item L<DateTime::Format::Natural::Lang::EN>
 
 =back
+
+=head1 AUTHOR
+
+Roman F. <romanf@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Roman F..
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
+
+__END__
