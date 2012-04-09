@@ -3,6 +3,7 @@ MANIFEST
 META.yml
 Makefile.PL
 README
+README.pod
 dist.ini
 lib/HTML/FormHandlerX/Field/DateTimeNatural.pm
 t/test.t

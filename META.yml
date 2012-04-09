@@ -1,5 +1,5 @@
 ---
-abstract: "a datetime field with natural\nlanguage parsing."
+abstract: 'a datetime field with natural language parsing.'
 author:
   - 'Roman F. <romanf@cpan.org>'
 build_requires:
@@ -20,4 +20,4 @@ requires:
   MooseX::Types::DateTime: 0
   namespace::autoclean: 0
   version: 0
-version: v0.1.0
+version: v0.2

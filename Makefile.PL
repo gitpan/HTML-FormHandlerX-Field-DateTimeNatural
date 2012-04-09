@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "a datetime field with natural\nlanguage parsing.",
+  "ABSTRACT" => "a datetime field with natural language parsing.",
   "AUTHOR" => "Roman F. <romanf\@cpan.org>",
   "BUILD_REQUIRES" => {
     "Test::More" => 0
@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     "namespace::autoclean" => 0,
     "version" => 0
   },
-  "VERSION" => "v0.1.0",
+  "VERSION" => "v0.2",
   "test" => {
     "TESTS" => "t/*.t"
   }
