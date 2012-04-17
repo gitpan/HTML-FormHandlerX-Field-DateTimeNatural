@@ -12,6 +12,9 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "a datetime field with natural language parsing.",
   "AUTHOR" => "Roman F. <romanf\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "FindBin" => 0,
+    "HTML::FormHandler" => 0,
+    "HTML::FormHandler::Moose" => 0,
     "Test::More" => 0,
     "strict" => 0,
     "warnings" => 0
@@ -31,7 +34,7 @@ my %WriteMakefileArgs = (
     "namespace::autoclean" => 0,
     "version" => 0
   },
-  "VERSION" => "v0.3",
+  "VERSION" => "v0.4",
   "test" => {
     "TESTS" => "t/*.t"
   }

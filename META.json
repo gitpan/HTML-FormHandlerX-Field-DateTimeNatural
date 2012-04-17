@@ -31,6 +31,9 @@
       },
       "test" : {
          "requires" : {
+            "FindBin" : "0",
+            "HTML::FormHandler" : "0",
+            "HTML::FormHandler::Moose" : "0",
             "Test::More" : "0",
             "strict" : "0",
             "warnings" : "0"
@@ -45,6 +48,6 @@
          "web" : "https://github.com/moltar/HTML-FormHandlerX-Field-DateTimeNatural"
       }
    },
-   "version" : "v0.3"
+   "version" : "v0.4"
 }
 
