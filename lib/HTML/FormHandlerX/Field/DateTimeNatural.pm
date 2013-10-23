@@ -2,13 +2,13 @@ package HTML::FormHandlerX::Field::DateTimeNatural;
 
 # ABSTRACT: a datetime field with natural language parsing.
 
-use Moose;
-use MooseX::Types::DateTime;
+use version; our $VERSION = version->declare('v0.6');
+
+use HTML::FormHandler::Moose;
 extends 'HTML::FormHandler::Field::Text';
 
+use MooseX::Types::DateTime;
 use DateTime::Format::Natural;
-
-use version; our $VERSION = version->declare("v0.5");
 
 has 'datetime_format_natural' => (
     is         => 'ro',
@@ -18,56 +18,50 @@ has 'datetime_format_natural' => (
 );
 
 has 'datetime' => (
-    is         => 'rw',
-    isa        => 'DateTime',
+    is  => 'rw',
+    isa => 'DateTime',
 );
 
 has 'lang' => (
-    is         => 'rw',
-    isa        => 'Str',
+    is  => 'rw',
+    isa => 'Str',
 );
 
 has 'format' => (
-    is         => 'rw',
-    isa        => 'Str',
+    is  => 'rw',
+    isa => 'Str',
 );
 
 has 'prefer_future' => (
-    is         => 'rw',
-    isa        => 'Bool',
+    is  => 'rw',
+    isa => 'Bool',
 );
 
 has 'time_zone' => (
-    is         => 'rw',
-    isa        => 'DateTime::TimeZone',
-    coerce     => 1,
+    is     => 'rw',
+    isa    => 'DateTime::TimeZone',
+    coerce => 1,
 );
 
 has 'daytime' => (
-    is         => 'rw',
-    isa        => 'HashRef',
+    is  => 'rw',
+    isa => 'HashRef',
 );
 
-
-our $class_messages = {
-    'date_invalid' => 'Date is invalid.',
-};
+our $class_messages = { 'date_invalid' => 'Date is invalid.', };
 
 sub get_class_messages {
     my $self = shift;
-    return {
-        %{$self->next::method},
-        %{$class_messages},
-    };
+    return { %{ $self->next::method }, %{$class_messages}, };
 }
 
 sub validate {
-    my $self = shift;
+    my $self  = shift;
     my $value = $self->value;
 
     ## validate
     my $parser = $self->datetime_format_natural;
-    my $dt = $parser->parse_datetime($value);
+    my $dt     = $parser->parse_datetime($value);
 
     ## update to inflated value or set error
     if ($parser->success) {
@@ -85,10 +79,15 @@ sub _build_datetime_format_natural {
 
     my %attributes;
     my $form = $self->form;
-    foreach my $attr (qw/datetime time_zone lang format prefer_future daytime/) {
+    foreach
+        my $attr (qw/datetime time_zone lang format prefer_future daytime/)
+    {
         if (defined $self->$attr) {
             $attributes{$attr} = $self->$attr;
-        } elsif ($form && $form->meta->find_attribute_by_name($attr) && defined $form->$attr) {
+        } elsif ($form
+            && $form->meta->find_attribute_by_name($attr)
+            && defined $form->$attr)
+        {
             $attributes{$attr} = $form->$attr;
         }
     }
@@ -106,7 +105,7 @@ __PACKAGE__->meta->make_immutable;
 use namespace::autoclean;
 1;
 
-
+__END__
 
 =pod
 
@@ -116,7 +115,7 @@ HTML::FormHandlerX::Field::DateTimeNatural - a datetime field with natural langu
 
 =head1 VERSION
 
-version v0.5
+version v0.6
 
 =head1 SYNOPSIS
 
@@ -180,12 +179,9 @@ Roman F. <romanf@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Roman F..
+This software is copyright (c) 2013 by Roman F..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__

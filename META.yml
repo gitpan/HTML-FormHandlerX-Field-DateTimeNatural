@@ -5,14 +5,12 @@ author:
 build_requires:
   FindBin: 0
   HTML::FormHandler: 0
-  HTML::FormHandler::Moose: 0
   Test::More: 0
-  strict: 0
-  warnings: 0
+  lib: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300010, CPAN::Meta::Converter version 2.120630'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,10 +19,10 @@ name: HTML-FormHandlerX-Field-DateTimeNatural
 requires:
   DateTime::Format::Natural: 0
   HTML::FormHandler::Field::Text: 0
-  Moose: 0
+  HTML::FormHandler::Moose: 0
   MooseX::Types::DateTime: 0
   namespace::autoclean: 0
   version: 0
 resources:
   repository: git://github.com/moltar/HTML-FormHandlerX-Field-DateTimeNatural.git
-version: v0.5
+version: v0.6
